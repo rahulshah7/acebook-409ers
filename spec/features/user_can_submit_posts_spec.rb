@@ -10,6 +10,7 @@ RSpec.feature 'Timeline', type: :feature do
     click_link 'New post'
     fill_in 'Message', with: 'Hello, world!'
     click_button 'Submit'
-    expect(page).to have_content('Hello, world!')
+    expect(find('.card-text').text).to have_content('Hello, world!')
+    expect(find('.card-subtitle').text).to match(/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\s\w{3}/)
   end
 end
