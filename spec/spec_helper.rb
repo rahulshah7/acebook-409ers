@@ -102,6 +102,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
+require_relative "./test_users.rb"
+
   config.before(:each) do
     setup_test_db
   end
