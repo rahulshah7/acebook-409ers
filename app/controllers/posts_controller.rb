@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    @users = User.joins(:posts).reverse
     @posts = Post.all.reverse
   end
 
