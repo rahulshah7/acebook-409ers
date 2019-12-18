@@ -1,7 +1,7 @@
-<% @posts.each do |post| %>
+<% @posts.each_with_index do |post,i| %>
     <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">@UserPlaceholder</h5>
+      <h5 class="card-title"><%= @users[i].email.split(/@/).first %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at %></h6>
       <p class="card-text"><%= simple_format(post.message) %></p>
       <a href="#" class="card-link">edit</a>
