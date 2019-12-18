@@ -5,7 +5,7 @@
 <% @posts.each do |post| %>
     <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">@UserPlaceholder</h5>
+      <h5 class="card-title"><%= post.user.email.split(/@/).first %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at %></h6>
       <p class="card-text"><%= simple_format(post.message) %></p>
       <%= link_to "edit", post_path(post), method: :patch, class: "card-link btn btn-primary button-edit" %>
