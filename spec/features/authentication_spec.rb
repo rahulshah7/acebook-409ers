@@ -20,4 +20,22 @@ RSpec.feature 'Authentication', type: :feature do
     click_button 'Log in'
     expect(page).to have_content('Signed in successfully.')
   end
+
+  scenario 'Can log out' do
+    visit '/users/sign_up'
+    fill_in 'Email', with: 'testemail@domain.com'
+    fill_in 'Password', with: 'password1'
+    fill_in 'Password confirmation', with: 'password1'
+    click_button 'Sign up'
+    click_link 'Log Out'
+    expect(page).to have_content('You need to sign in or sign up before continuing.')
+  end
+
+  scenario 'Can use login button' do
+    visit '/'
+    click_link 'Login'
+    expect(page).to have_field('Email')
+    expect(page).to have_field('Password')
+    expect(page).to have_button('Log in')
+  end
 end
