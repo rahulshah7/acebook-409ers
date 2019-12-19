@@ -30,14 +30,8 @@ RSpec.feature 'Post timeline feature', type: :feature do
 
   scenario 'User can delete posts' do
     expect(find('.container').text).to match(/Hello, world!/)
-    find_all('.button-delete')[1].click
+    find_all('.button-delete')[0].click
     expect(find('.container').text).not_to match(/Hello, world!/)
   end
 
-  scenario 'User cannot delete other user\'s posts' do
-    expect(find('.container').text).to match('I love food!')
-    find_all('.button-delete')[0].click
-    expect(page).to have_content('Cannot delete another user\'s post.')
-    expect(find('.container').text).to match('I love food!')
-  end
 end
