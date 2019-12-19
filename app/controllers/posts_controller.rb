@@ -22,9 +22,16 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params['id'])
-    @post.update(message: post_params[:message])
-    flash[:notice] = 'Successfully updated post.'
+    post_id = params['id']
+    user_id = Post.find(post_id).user_id
+
+    if user_id == current_user.id
+      @post = Post.find(post_id)
+      @post.update(message: post_params[:message])
+      flash[:notice] = 'Successfully edited post.'
+    else
+      flash[:alert] = "Cannot edit another user's post."
+    end
     redirect_to posts_url
   end
 
