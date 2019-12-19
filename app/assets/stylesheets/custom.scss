@@ -1,0 +1,20 @@
+$body-bg: #bca6df;
+$theme-colors: (
+  "primary": rgb(134, 113, 158)
+);
+
+.c-- {
+  &navbar {
+    background-color: hsla(263, 97%, 25%, 0.945);
+
+    .navbar-brand{
+      color: white;
+    }
+
+    .nav-link{
+      color: #c6ccd8;
+
+    }
+  }
+}
+
