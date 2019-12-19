@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @form_title = 'Posts'
     if(params[:user_id] == nil)
       @posts = Post.all.reverse
     else
