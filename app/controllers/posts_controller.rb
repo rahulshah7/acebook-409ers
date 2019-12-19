@@ -11,7 +11,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.reverse
+    if(params[:user_id] == nil)
+      @posts = Post.all.reverse
+    else
+      @posts = Post.where("user_id = ?", params[:user_id])
+    end
   end
 
   private

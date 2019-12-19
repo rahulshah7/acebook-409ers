@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts
+
+  resources :users do
+    resources :posts
+  end
 end
