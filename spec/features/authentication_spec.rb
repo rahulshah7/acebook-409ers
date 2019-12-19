@@ -30,4 +30,12 @@ RSpec.feature 'Authentication', type: :feature do
     click_link 'Log Out'
     expect(page).to have_content('You need to sign in or sign up before continuing.')
   end
+
+  scenario 'Can use login button' do
+    visit '/'
+    click_link 'Login'
+    expect(page).to have_field('Email')
+    expect(page).to have_field('Password')
+    expect(page).to have_button('Log in')
+  end
 end
