@@ -9,10 +9,10 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at %></h6>
       <p class="card-text"><%= simple_format(post.message) %></p>
       <% if current_user.id == post.user_id %>
-        <%= link_to edit_post_path(post), class: "mr-3 btn btn-info" do %>
+        <%= link_to edit_post_path(post), class: "mr-3 btn btn-info button-edit" do %>
           <%= fa_icon "edit" %>
         <% end %>
-        <%= link_to post_path(post), class: "btn btn-danger", method: :delete do %>
+        <%= link_to post_path(post), class: "btn btn-danger button-delete", method: :delete do %>
           <%= fa_icon "trash-alt" %>
         <% end %>
       <% end %>
