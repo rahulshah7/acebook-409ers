@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     if(params[:user_id] == nil)
       @posts = Post.all.reverse
     else
-      @posts = Post.where("user_id = ?", params[:user_id])
+      @posts = Post.where("user_id = ?", params[:user_id]).reverse
     end
   end
 
