@@ -27,8 +27,12 @@ class PostsController < ApplicationController
 
     if user_id == current_user.id
       @post = Post.find(post_id)
-      @post.update(message: post_params[:message])
-      flash[:notice] = 'Successfully edited post.'
+      if Time.current > (@post.created_at + 600)
+        flash[:alert] = 'Cannot edit, posted 10 minutes ago.'
+      else
+        @post.update(message: post_params[:message])
+        flash[:notice] = 'Successfully edited post.'
+      end
     else
       flash[:alert] = "Cannot edit another user's post."
     end
