@@ -1,20 +1,15 @@
-$body-bg: #bca6df;
+$body-bg: #fce4ec;
+
 $theme-colors: (
-  "primary": rgb(134, 113, 158)
-);
+  "primary": #e91e63,
+  "success": #ff1744,
+  "info": #d81b60,
+  "warning": #9c27b0,
+  "danger": #f44336,
+  "light": #f06292,
+  "dark": #ff4081
+  );
 
-.c-- {
-  &navbar {
-    background-color: hsla(263, 97%, 25%, 0.945);
-
-    .navbar-brand{
-      color: white;
-    }
-
-    .nav-link{
-      color: #c6ccd8;
-
-    }
+  .navbar-brand {
+    font-family: 'Pacifico', cursive;
   }
-}
-
