@@ -10,7 +10,7 @@ RSpec.feature 'Post timeline feature', type: :feature do
   end
 
   scenario 'Can submit posts and view them' do
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, universe!'
     click_button 'Submit'
     expect(page).to have_content('Hello, universe!')
@@ -19,10 +19,10 @@ RSpec.feature 'Post timeline feature', type: :feature do
   end
 
   scenario 'Can submit multiple posts and view them in reverse chronological order' do
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, world!'
     click_button 'Submit'
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, universe!'
     click_button 'Submit'
     expect(find('.container').text).to match(/Hello, universe!.*Hello, world!/)
@@ -33,5 +33,4 @@ RSpec.feature 'Post timeline feature', type: :feature do
     find_all('.button-delete')[0].click
     expect(find('.container').text).not_to match(/Hello, world!/)
   end
-
 end

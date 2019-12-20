@@ -23,7 +23,9 @@
 <footer class="fixed-bottom">
   <div class="row">
     <div class="col-xs-11 col-md-9 d-flex flex-row-reverse mb-3 mr-3">
-      <%= link_to "New post", new_post_path, class: "btn btn-outline-success" %>
+      <%= link_to new_post_path, class: "btn btn-success button-new-post rounded-circle" do %>
+        <%= fa_icon "plus 3x" %>
+      <% end %>
     </div>
   </div>
 </footer>
