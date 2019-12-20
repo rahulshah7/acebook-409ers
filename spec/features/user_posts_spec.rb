@@ -10,14 +10,14 @@ RSpec.feature 'Post timeline feature', type: :feature do
   end
 
   scenario 'Can submit posts and view them' do
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, universe!'
-    click_button "Submit"
+    click_button 'Submit'
     click_link 'Log Out'
     log_in_alt_user
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, world!'
-    click_button "Submit"
+    click_button 'Submit'
     click_link 'My Posts'
     expect(page).not_to have_content(test_users(0)[:email].split('@').first)
     expect(find_all('.card-title').first.text).to have_content(test_users(1)[:email].split('@').first)

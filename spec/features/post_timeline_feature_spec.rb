@@ -10,19 +10,19 @@ RSpec.feature 'Post timeline feature', type: :feature do
   end
 
   scenario 'Can submit posts and view them' do
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, universe!'
     click_button 'Submit'
     expect(page).to have_content('Hello, universe!')
-    expect(find_all('.card-subtitle').first.text).to match(/\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\s\w{3}/)
+    expect(find_all('.card-subtitle').first.text).to match(/\w+ \d+th, \d{4}\s\d{2}:\d{2}/) # "December 20th, 2019 09:56"
     expect(find_all('.card-title').first.text).to have_content(test_users(0)[:email].split('@').first)
   end
 
   scenario 'Can submit multiple posts and view them in reverse chronological order' do
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, world!'
     click_button 'Submit'
-    click_link 'New post'
+    find('.button-new-post').click
     fill_in 'Message', with: 'Hello, universe!'
     click_button 'Submit'
     expect(find('.container').text).to match(/Hello, universe!.*Hello, world!/)
@@ -33,5 +33,4 @@ RSpec.feature 'Post timeline feature', type: :feature do
     find_all('.button-delete')[0].click
     expect(find('.container').text).not_to match(/Hello, world!/)
   end
-
 end

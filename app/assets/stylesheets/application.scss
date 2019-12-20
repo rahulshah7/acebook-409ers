@@ -16,8 +16,9 @@
 
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "./custom";
-@import "bootstrap"; 
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import "custom";
 
 /*flash*/
 .alert-error {
@@ -47,3 +48,5 @@
   color: #468847;
   text-align: left;
 }
+
+  @import "bootstrap";

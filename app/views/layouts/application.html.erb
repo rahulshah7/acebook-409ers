@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Acebook</title>
     <%= csrf_meta_tags %>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <script src="https://kit.fontawesome.com/d30c978d5d.js" crossorigin="anonymous"></script>
   </head>
-
   <body>
     <%= render "shared/navbar" %>
     <%= render 'layouts/messages' %>

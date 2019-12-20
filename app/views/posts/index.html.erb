@@ -1,21 +1,31 @@
-<h1 class="mt-5 mb-3"><%= @form_title %> </h1>
-
-<% @posts.each do |post| %>
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= post.user.email.split(/@/).first %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at %></h6>
-      <p class="card-text"><%= simple_format(post.message) %></p>
-      <% if current_user.id == post.user_id %>
-        <%= link_to edit_post_path(post), class: "mr-3 btn btn-info button-edit" do %>
-          <%= fa_icon "edit" %>
+<div class="row">
+  <div class="col-md-9">
+    <h1 class="mt-5 mb-3"><%= @form_title %> </h1>
+    <% @posts.each do |post| %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title">@<%= post.user.email.split(/@/).first %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.to_formatted_s(:long_ordinal) %></h6>
+        <p class="card-text"><%= simple_format(post.message) %></p>
+        <% if current_user.id == post.user_id %>
+          <%= link_to edit_post_path(post), class: "mr-3 btn btn-info button-edit" do %>
+            <%= fa_icon "edit", class: " mr-n1" %>
+          <% end %>
+          <%= link_to post_path(post), class: "btn btn-danger button-delete", method: :delete do %>
+            <%= fa_icon "trash" %>
+          <% end %>
         <% end %>
-        <%= link_to post_path(post), class: "btn btn-danger button-delete", method: :delete do %>
-          <%= fa_icon "trash-alt" %>
-        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<footer class="fixed-bottom">
+  <div class="row">
+    <div class="col-xs-11 col-md-9 d-flex flex-row-reverse mb-3 mr-3">
+      <%= link_to new_post_path, class: "btn btn-success button-new-post rounded-circle" do %>
+        <%= fa_icon "plus 3x" %>
       <% end %>
     </div>
   </div>
-<% end %>
-
-
+</footer>
